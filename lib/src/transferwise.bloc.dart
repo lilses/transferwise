@@ -5,6 +5,7 @@ import 'package:api/api.dart';
 import 'package:auth_id/auth_id.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transferwise/src/transferwise.repo.dart';
+import 'package:transferwise/src/transferwise_payment.model.dart';
 import 'package:transferwise/src/transferwise_statement.api.dart';
 import 'package:transferwise/src/transferwise_statement.model.dart';
 import 'package:wallet/wallet.dart';
@@ -17,6 +18,7 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
 
   final AuthIdRepo authIdRepo;
   final ApiRepo apiRepo;
+  final CartRepo cartRepo;
   final TransferwiseRepo transferwiseRepo;
 
 
@@ -24,8 +26,6 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
   late final StreamSubscription authIdRepoSubscription;
   late final StreamSubscription walletSubscription;
   late final StreamSubscription timerSubscription;
-
-
 
 
   QWallet? _qWallet;
@@ -59,6 +59,12 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
             emit(TransferwiseState.some(event));
       }
     );
+  }
+
+  createPaymentReference(){
+    apiRepo.postTransferwisePayment(data:
+      ITransferwisePayment(products: products, reference: reference, amount: amount, createdAt: createdAt)
+    )
   }
 
   checkStatement(){
