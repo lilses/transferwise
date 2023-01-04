@@ -97,8 +97,8 @@ Map<String, dynamic> _$ITransferWiseStatementTxDetailsToJson(
 ITransferWiseStatementTxNumber _$ITransferWiseStatementTxNumberFromJson(
         Map<String, dynamic> json) =>
     ITransferWiseStatementTxNumber(
-      value: json['value'] as String,
-      currency: json['currency'] as String,
+      value: json['value'] as String?,
+      currency: json['currency'] as String?,
     );
 
 Map<String, dynamic> _$ITransferWiseStatementTxNumberToJson(

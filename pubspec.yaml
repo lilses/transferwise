@@ -12,6 +12,10 @@ dependencies:
     path: ../api
   auth_id:
     path: ../auth_id
+  product:
+    path: ../product
+  wallet:
+    path: ../wallet
   json_annotation: 4.7.0
   flutter:
     sdk: flutter

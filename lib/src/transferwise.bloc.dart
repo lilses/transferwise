@@ -1,7 +1,5 @@
 
 import 'dart:async';
-import 'dart:convert';
-import 'dart:math';
 
 import 'package:api/api.dart';
 import 'package:auth_id/auth_id.dart';
@@ -69,7 +67,11 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
           data: TransferwiseStatementApi(
               data: ITransferwiseStatement(
                   transactions: [ITransferWiseStatementTx(
-                      date: date, amount: amount, totalFees: totalFees, details: details, referenceNumber: referenceNumber)]), walletRequest: _walletRequest!))
+                      date: DateTime.now(),
+                      amount: const ITransferWiseStatementTxNumber(value: null, currency: null),
+                      totalFees: const ITransferWiseStatementTxNumber(value: null, currency: null),
+                      details: const ITransferWiseStatementTxDetails(description: '', senderName: null, senderAccount: null, paymentReference: null),
+                      referenceNumber: "")]), walletRequest: _walletRequest!));
     }
 
   }

@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:product/product.dart';
 
 /// This allows the `User` class to access private members in
 /// the generated file. The value for this is *.g.dart, where
@@ -22,11 +23,16 @@ part 'transferwise_payment.model.g.dart';
 class QTransferwisePayment {
   final int id;
   final List<IProduct> products;
-
+  final String reference;
+  final String amount;
+  final DateTime createdAt;
 
   const QTransferwisePayment({
     required this.id,
-    required this.transactions,
+    required this.products,
+    required this.reference,
+    required this.amount,
+    required this.createdAt,
   });
 
   /// A necessary factory constructor for creating a new User instance
@@ -43,11 +49,17 @@ class QTransferwisePayment {
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class OTransferwisePayment {
-  final List<ITransferWisePaymentTx>? transactions;
+  final List<IProduct>? products;
+  final String? reference;
+  final String? amount;
+  final DateTime? createdAt;
 
 
   const OTransferwisePayment({
-    required this.transactions,
+    required this.products,
+    required this.reference,
+    required this.amount,
+    required this.createdAt,
   });
 
   /// A necessary factory constructor for creating a new User instance
@@ -64,11 +76,16 @@ class OTransferwisePayment {
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class ITransferwisePayment {
-  final List<ITransferWisePaymentTx> transactions;
-
+  final List<IProduct> products;
+  final String reference;
+  final String amount;
+  final DateTime createdAt;
 
   const ITransferwisePayment({
-    required this.transactions,
+    required this.products,
+    required this.reference,
+    required this.amount,
+    required this.createdAt,
   });
 
   /// A necessary factory constructor for creating a new User instance

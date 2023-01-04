@@ -131,8 +131,8 @@ class ITransferWiseStatementTxDetails {
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class ITransferWiseStatementTxNumber {
-  final String value;
-  final String currency;
+  final String? value;
+  final String? currency;
 
 
   const ITransferWiseStatementTxNumber({
