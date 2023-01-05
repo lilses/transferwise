@@ -60,10 +60,10 @@ ITransferWiseStatementTx _$ITransferWiseStatementTxFromJson(
       amount: ITransferWiseStatementTxNumber.fromJson(
           json['amount'] as Map<String, dynamic>),
       totalFees: ITransferWiseStatementTxNumber.fromJson(
-          json['total_fees'] as Map<String, dynamic>),
+          json['totalFees'] as Map<String, dynamic>),
       details: ITransferWiseStatementTxDetails.fromJson(
           json['details'] as Map<String, dynamic>),
-      referenceNumber: json['reference_number'] as String,
+      referenceNumber: json['referenceNumber'] as String,
     );
 
 Map<String, dynamic> _$ITransferWiseStatementTxToJson(
@@ -71,34 +71,34 @@ Map<String, dynamic> _$ITransferWiseStatementTxToJson(
     <String, dynamic>{
       'date': instance.date.toIso8601String(),
       'details': instance.details.toJson(),
-      'total_fees': instance.totalFees.toJson(),
+      'totalFees': instance.totalFees.toJson(),
       'amount': instance.amount.toJson(),
-      'reference_number': instance.referenceNumber,
+      'referenceNumber': instance.referenceNumber,
     };
 
 ITransferWiseStatementTxDetails _$ITransferWiseStatementTxDetailsFromJson(
         Map<String, dynamic> json) =>
     ITransferWiseStatementTxDetails(
       description: json['description'] as String,
-      senderName: json['sender_name'] as String?,
-      senderAccount: json['sender_account'] as String?,
-      paymentReference: json['payment_reference'] as String?,
+      senderName: json['senderName'] as String?,
+      senderAccount: json['senderAccount'] as String?,
+      paymentReference: json['paymentReference'] as String?,
     );
 
 Map<String, dynamic> _$ITransferWiseStatementTxDetailsToJson(
         ITransferWiseStatementTxDetails instance) =>
     <String, dynamic>{
       'description': instance.description,
-      'sender_name': instance.senderName,
-      'sender_account': instance.senderAccount,
-      'payment_reference': instance.paymentReference,
+      'senderName': instance.senderName,
+      'senderAccount': instance.senderAccount,
+      'paymentReference': instance.paymentReference,
     };
 
 ITransferWiseStatementTxNumber _$ITransferWiseStatementTxNumberFromJson(
         Map<String, dynamic> json) =>
     ITransferWiseStatementTxNumber(
-      value: json['value'] as String?,
-      currency: json['currency'] as String?,
+      value: json['value'] as String,
+      currency: json['currency'] as String,
     );
 
 Map<String, dynamic> _$ITransferWiseStatementTxNumberToJson(

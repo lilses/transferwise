@@ -72,7 +72,7 @@ class ITransferwiseStatement {
   Map<String, dynamic> toJson() => _$ITransferwiseStatementToJson(this);
 }
 
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+@JsonSerializable(fieldRename: FieldRename.none, explicitToJson: true)
 class ITransferWiseStatementTx {
   final DateTime date;
   final ITransferWiseStatementTxDetails details;
@@ -102,7 +102,7 @@ class ITransferWiseStatementTx {
   Map<String, dynamic> toJson() => _$ITransferWiseStatementTxToJson(this);
 }
 
-@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+@JsonSerializable(fieldRename: FieldRename.none, explicitToJson: true)
 class ITransferWiseStatementTxDetails {
   final String description;
   final String? senderName;
@@ -131,8 +131,8 @@ class ITransferWiseStatementTxDetails {
 
 @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class ITransferWiseStatementTxNumber {
-  final String? value;
-  final String? currency;
+  final String value;
+  final String currency;
 
 
   const ITransferWiseStatementTxNumber({

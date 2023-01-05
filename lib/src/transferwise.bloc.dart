@@ -38,12 +38,20 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
   Future<void> close() {
     transferwiseRepoSubscription.cancel();
     transferwiseStatementSubscription.cancel();
+    walletSubscription.cancel();
+    paymentSubscription.cancel();
+    cartSubscription.cancel();
+    authIdRepoSubscription.cancel();
     return super.close();
   }
 
   void subscribe() {
     transferwiseRepoSubscription = transferwiseRepo.transferwiseTimer.listen((event) {
-      print("transferwiseRepo event $event");
+      final payment = getStatePayment();
+      if (payment != null){
+        checkStatement();
+        print("transferwiseRepo event $event");
+      }
     });
     walletSubscription = apiRepo.postWalletItems.listen((event) {
       _qWallet = event;
@@ -73,8 +81,22 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
     transferwiseStatementSubscription =
         apiRepo.postTransferwiseStatementItems.listen((event) {
           final payment = state.map(none: (none)=>null, some: (some) => some.transferwisePayment);
-          emit(TransferwiseState.some(transferwiseStatement: event, transferwisePayment: payment));
+          if (event.transactions.isNotEmpty) {
+            emit(TransferwiseState.some(transferwiseStatement: event, transferwisePayment: payment));
+          } else {
+            emit(TransferwiseState.some(transferwiseStatement: null, transferwisePayment: payment));
+          }
         });
+  }
+
+  ITransferwisePayment? getStatePayment(){
+    final payment = state.map(none: (none)=>null, some: (some) => some.transferwisePayment);
+    return payment;
+  }
+
+  ITransferwiseStatement? getStateStatement(){
+    final statement = state.map(none: (none)=>null, some: (some) => some.transferwiseStatement);
+    return statement;
   }
 
   createPaymentReference() {
@@ -97,16 +119,16 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
           data: TransferwiseStatementApi(
               data: ITransferwiseStatement(transactions: [
                 ITransferWiseStatementTx(
-                    date: DateTime.now(),
+                    date: DateTime.now().toUtc(),
                     amount: const ITransferWiseStatementTxNumber(
-                        value: null, currency: null),
+                        value: "0", currency: ""),
                     totalFees: const ITransferWiseStatementTxNumber(
-                        value: null, currency: null),
-                    details: const ITransferWiseStatementTxDetails(
+                        value: "0", currency: ""),
+                    details: ITransferWiseStatementTxDetails(
                         description: '',
                         senderName: null,
                         senderAccount: null,
-                        paymentReference: null),
+                        paymentReference: getStatePayment()!.reference),
                     referenceNumber: "")
               ]),
               walletRequest: _walletRequest!));
