@@ -26,6 +26,7 @@ class QTransferwisePayment {
   final String reference;
   final String amount;
   final DateTime createdAt;
+  final int walletId;
 
   const QTransferwisePayment({
     required this.id,
@@ -33,6 +34,7 @@ class QTransferwisePayment {
     required this.reference,
     required this.amount,
     required this.createdAt,
+    required this.walletId
   });
 
   /// A necessary factory constructor for creating a new User instance
@@ -53,6 +55,7 @@ class OTransferwisePayment {
   final String? reference;
   final String? amount;
   final DateTime? createdAt;
+  final int? walletId;
 
 
   const OTransferwisePayment({
@@ -60,6 +63,7 @@ class OTransferwisePayment {
     required this.reference,
     required this.amount,
     required this.createdAt,
+    required this.walletId
   });
 
   /// A necessary factory constructor for creating a new User instance
@@ -80,12 +84,14 @@ class ITransferwisePayment {
   final String reference;
   final String amount;
   final DateTime createdAt;
+  final int walletId;
 
   const ITransferwisePayment({
     required this.products,
     required this.reference,
     required this.amount,
     required this.createdAt,
+    required this.walletId
   });
 
   /// A necessary factory constructor for creating a new User instance
