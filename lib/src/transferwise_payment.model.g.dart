@@ -16,6 +16,7 @@ QTransferwisePayment _$QTransferwisePaymentFromJson(
       reference: json['reference'] as String,
       amount: json['amount'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
+      walletId: json['wallet_id'] as int,
     );
 
 Map<String, dynamic> _$QTransferwisePaymentToJson(
@@ -26,6 +27,7 @@ Map<String, dynamic> _$QTransferwisePaymentToJson(
       'reference': instance.reference,
       'amount': instance.amount,
       'created_at': instance.createdAt.toIso8601String(),
+      'wallet_id': instance.walletId,
     };
 
 OTransferwisePayment _$OTransferwisePaymentFromJson(
@@ -39,6 +41,7 @@ OTransferwisePayment _$OTransferwisePaymentFromJson(
       createdAt: json['created_at'] == null
           ? null
           : DateTime.parse(json['created_at'] as String),
+      walletId: json['wallet_id'] as int?,
     );
 
 Map<String, dynamic> _$OTransferwisePaymentToJson(
@@ -48,6 +51,7 @@ Map<String, dynamic> _$OTransferwisePaymentToJson(
       'reference': instance.reference,
       'amount': instance.amount,
       'created_at': instance.createdAt?.toIso8601String(),
+      'wallet_id': instance.walletId,
     };
 
 ITransferwisePayment _$ITransferwisePaymentFromJson(
@@ -59,6 +63,7 @@ ITransferwisePayment _$ITransferwisePaymentFromJson(
       reference: json['reference'] as String,
       amount: json['amount'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
+      walletId: json['wallet_id'] as int,
     );
 
 Map<String, dynamic> _$ITransferwisePaymentToJson(
@@ -68,4 +73,5 @@ Map<String, dynamic> _$ITransferwisePaymentToJson(
       'reference': instance.reference,
       'amount': instance.amount,
       'created_at': instance.createdAt.toIso8601String(),
+      'wallet_id': instance.walletId,
     };

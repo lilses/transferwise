@@ -19,24 +19,24 @@ mixin _$TransferwiseState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() none,
-    required TResult Function(ITransferwiseStatement? transferwiseStatement,
-            ITransferwisePayment? transferwisePayment)
+    required TResult Function(QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment)
         some,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? none,
-    TResult? Function(ITransferwiseStatement? transferwiseStatement,
-            ITransferwisePayment? transferwisePayment)?
+    TResult? Function(QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment)?
         some,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? none,
-    TResult Function(ITransferwiseStatement? transferwiseStatement,
-            ITransferwisePayment? transferwisePayment)?
+    TResult Function(QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment)?
         some,
     required TResult orElse(),
   }) =>
@@ -117,8 +117,8 @@ class _$_None implements _None {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() none,
-    required TResult Function(ITransferwiseStatement? transferwiseStatement,
-            ITransferwisePayment? transferwisePayment)
+    required TResult Function(QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment)
         some,
   }) {
     return none();
@@ -128,8 +128,8 @@ class _$_None implements _None {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? none,
-    TResult? Function(ITransferwiseStatement? transferwiseStatement,
-            ITransferwisePayment? transferwisePayment)?
+    TResult? Function(QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment)?
         some,
   }) {
     return none?.call();
@@ -139,8 +139,8 @@ class _$_None implements _None {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? none,
-    TResult Function(ITransferwiseStatement? transferwiseStatement,
-            ITransferwisePayment? transferwisePayment)?
+    TResult Function(QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment)?
         some,
     required TResult orElse(),
   }) {
@@ -192,8 +192,8 @@ abstract class _$$_SomeCopyWith<$Res> {
       __$$_SomeCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {ITransferwiseStatement? transferwiseStatement,
-      ITransferwisePayment? transferwisePayment});
+      {QTransferwiseStatement? transferwiseStatement,
+      QTransferwisePayment? transferwisePayment});
 }
 
 /// @nodoc
@@ -213,11 +213,11 @@ class __$$_SomeCopyWithImpl<$Res>
       transferwiseStatement: freezed == transferwiseStatement
           ? _value.transferwiseStatement
           : transferwiseStatement // ignore: cast_nullable_to_non_nullable
-              as ITransferwiseStatement?,
+              as QTransferwiseStatement?,
       transferwisePayment: freezed == transferwisePayment
           ? _value.transferwisePayment
           : transferwisePayment // ignore: cast_nullable_to_non_nullable
-              as ITransferwisePayment?,
+              as QTransferwisePayment?,
     ));
   }
 }
@@ -229,9 +229,9 @@ class _$_Some implements _Some {
       {required this.transferwiseStatement, required this.transferwisePayment});
 
   @override
-  final ITransferwiseStatement? transferwiseStatement;
+  final QTransferwiseStatement? transferwiseStatement;
   @override
-  final ITransferwisePayment? transferwisePayment;
+  final QTransferwisePayment? transferwisePayment;
 
   @override
   String toString() {
@@ -263,8 +263,8 @@ class _$_Some implements _Some {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() none,
-    required TResult Function(ITransferwiseStatement? transferwiseStatement,
-            ITransferwisePayment? transferwisePayment)
+    required TResult Function(QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment)
         some,
   }) {
     return some(transferwiseStatement, transferwisePayment);
@@ -274,8 +274,8 @@ class _$_Some implements _Some {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? none,
-    TResult? Function(ITransferwiseStatement? transferwiseStatement,
-            ITransferwisePayment? transferwisePayment)?
+    TResult? Function(QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment)?
         some,
   }) {
     return some?.call(transferwiseStatement, transferwisePayment);
@@ -285,8 +285,8 @@ class _$_Some implements _Some {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? none,
-    TResult Function(ITransferwiseStatement? transferwiseStatement,
-            ITransferwisePayment? transferwisePayment)?
+    TResult Function(QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment)?
         some,
     required TResult orElse(),
   }) {
@@ -330,11 +330,11 @@ class _$_Some implements _Some {
 
 abstract class _Some implements TransferwiseState {
   const factory _Some(
-      {required final ITransferwiseStatement? transferwiseStatement,
-      required final ITransferwisePayment? transferwisePayment}) = _$_Some;
+      {required final QTransferwiseStatement? transferwiseStatement,
+      required final QTransferwisePayment? transferwisePayment}) = _$_Some;
 
-  ITransferwiseStatement? get transferwiseStatement;
-  ITransferwisePayment? get transferwisePayment;
+  QTransferwiseStatement? get transferwiseStatement;
+  QTransferwisePayment? get transferwisePayment;
   @JsonKey(ignore: true)
   _$$_SomeCopyWith<_$_Some> get copyWith => throw _privateConstructorUsedError;
 }

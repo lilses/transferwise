@@ -8,7 +8,7 @@ part 'transferwise.state.freezed.dart';
 class TransferwiseState with _$TransferwiseState {
   const factory TransferwiseState.none() = _None;
   const factory TransferwiseState.some({
-    required ITransferwiseStatement? transferwiseStatement,
-      required ITransferwisePayment? transferwisePayment
+    required QTransferwiseStatement? transferwiseStatement,
+      required QTransferwisePayment? transferwisePayment
   }) = _Some;
 }

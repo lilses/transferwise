@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:api/api.dart';
 import 'package:auth_id/auth_id.dart';
 import 'package:cart/cart.dart';
+import 'package:notification/notification.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:product/product.dart';
 import 'package:wallet/wallet.dart';
@@ -46,13 +47,13 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
   }
 
   void subscribe() {
-    transferwiseRepoSubscription = transferwiseRepo.transferwiseTimer.listen((event) {
-      final payment = getStatePayment();
-      if (payment != null){
-        checkStatement();
-        print("transferwiseRepo event $event");
-      }
-    });
+    // transferwiseRepoSubscription = transferwiseRepo.transferwiseTimer.listen((event) {
+    //   final payment = getStatePayment();
+    //   if (payment != null){
+    //     checkStatement();
+    //     print("transferwiseRepo event $event");
+    //   }
+    // });
     walletSubscription = apiRepo.postWalletItems.listen((event) {
       _qWallet = event;
     });
@@ -64,6 +65,7 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
           some: (some){
             emit(TransferwiseState.some(transferwisePayment: event, transferwiseStatement: some.transferwiseStatement));
           });
+      notify();
       // _qWallet = event;
     });
     cartSubscription = cartRepo.items.listen((event) {
@@ -89,28 +91,48 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
         });
   }
 
-  ITransferwisePayment? getStatePayment(){
+  QTransferwisePayment? getStatePayment(){
     final payment = state.map(none: (none)=>null, some: (some) => some.transferwisePayment);
     return payment;
   }
 
-  ITransferwiseStatement? getStateStatement(){
+  QTransferwiseStatement? getStateStatement(){
     final statement = state.map(none: (none)=>null, some: (some) => some.transferwiseStatement);
     return statement;
   }
 
   createPaymentReference() {
-    if (_qProducts != null && _walletRequest != null) {
+    if (_qProducts != null && _walletRequest != null && _qWallet != null) {
       apiRepo.postTransferwisePayment(data:
       TransferwisePaymentApi(
           data: ITransferwisePayment(
               products: _qProducts!,
               reference: "",
               amount: cartRepo.getPricePlusPercent(0.015).toStringAsFixed(2),
-              createdAt: DateTime.now().toUtc()),
+              createdAt: DateTime.now().toUtc(),
+              walletId: _qWallet!.id),
           walletRequest: _walletRequest!)
       );
     }
+  }
+
+  notify() {
+    state.map(
+        none: (none){},
+        some: (some){
+          if (some.transferwisePayment != null){
+            apiRepo.postNotification(data:
+              NotificationApi(data:
+                  INotification(
+                      notificationType: NotificationType.transferwisePayment.index,
+                      transferwisePaymentId: some.transferwisePayment!.id,
+                      stripePaymentId: null,
+                      walletId: _qWallet!.id
+                  ),
+                  walletRequest: _walletRequest!)
+            );
+          }
+        });
   }
 
   checkStatement() {
