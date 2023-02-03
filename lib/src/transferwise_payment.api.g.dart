@@ -10,13 +10,12 @@ TransferwisePaymentApi _$TransferwisePaymentApiFromJson(
         Map<String, dynamic> json) =>
     TransferwisePaymentApi(
       data: ITransferwisePayment.fromJson(json['data'] as Map<String, dynamic>),
-      walletRequest: WalletRequest.fromJson(
-          json['wallet_request'] as Map<String, dynamic>),
+      walletRequest: json['wallet_request'],
     );
 
 Map<String, dynamic> _$TransferwisePaymentApiToJson(
         TransferwisePaymentApi instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
-      'wallet_request': instance.walletRequest.toJson(),
+      'wallet_request': instance.walletRequest,
     };
