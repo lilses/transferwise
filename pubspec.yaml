@@ -8,6 +8,8 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  types:
+    path: ../types
   notification:
     path: ../notification
   api:
