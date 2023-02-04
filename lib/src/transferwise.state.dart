@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:transferwise/src/transferwise_payment.model.dart';
-import 'package:transferwise/src/transferwise_statement.model.dart';
+import 'package:types/types.dart';
 
 part 'transferwise.state.freezed.dart';
 

@@ -83,7 +83,7 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
     transferwiseStatementSubscription =
         apiRepo.postTransferwiseStatementItems.listen((event) {
           final payment = state.map(none: (none)=>null, some: (some) => some.transferwisePayment);
-          if (event.transactions.isNotEmpty) {
+          if (event) {
             emit(TransferwiseState.some(transferwiseStatement: event, transferwisePayment: payment));
           } else {
             emit(TransferwiseState.some(transferwiseStatement: null, transferwisePayment: payment));

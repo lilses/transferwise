@@ -12,8 +12,6 @@ dependencies:
     path: ../types
   notification:
     path: ../notification
-  api:
-    path: ../api
   auth_id:
     path: ../auth_id
   product:
