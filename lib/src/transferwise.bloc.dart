@@ -111,7 +111,7 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
       TransferwisePaymentApi(
           data: ITransferwisePayment(
               reference: "",
-              amount: cartRepo.getPricePlusPercent(0.015).toStringAsFixed(2),
+              amount: _qProducts!.getPricePlusPercent(0.015).toStringAsFixed(2),
               createdAt: DateTime.now().toUtc(),
               walletId: _qWallet!.id,
               productPriceList: [
