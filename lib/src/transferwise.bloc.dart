@@ -6,6 +6,7 @@ import 'package:cart/cart.dart';
 import 'package:notification/notification.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:product/product.dart';
+import 'package:router/router.dart';
 import 'package:wallet/wallet.dart';
 import '../transferwise.dart';
 
@@ -35,7 +36,7 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
     required this.transferwisePaymentApiRepo,
     required this.transferwiseStatementApiRepo,
     required this.cartRepo})
-      : super(const TransferwiseState.none()) {
+      : super(const TransferwiseState.some(productEnums: [])) {
     subscribe();
   }
 
@@ -60,48 +61,37 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
     // });
     walletSubscription = walletApiRepo.postWalletItems.listen((event) {
       _qWallet = event[0];
+      emit(newState(wallet: event[0]));
     });
     paymentSubscription = transferwisePaymentApiRepo.postTransferwisePaymentItems.listen((event) {
-      state.map(
-          none: (none){
-            emit(TransferwiseState.some(transferwisePayment: event[0], transferwiseStatement: null));
-          },
-          some: (some){
-            emit(TransferwiseState.some(transferwisePayment: event[0], transferwiseStatement: some.transferwiseStatement));
-          });
-      // notify();
-      // _qWallet = event;
+      emit(newState(transferwisePayment: event[0]));
     });
     cartSubscription = cartRepo.items.listen((event) {
-      _qProducts = event.products;
-      // createPaymentReference();
+      emit(newState(productEnums: event.products));
     });
     authIdRepoSubscription = authIdRepo.items.listen((event) {
       event.map(
           none: (none) {},
           some: (some) {
-            _walletRequest = some.walletRequest;
-            // createPaymentReference();
+            emit(newState(walletRequest: some.walletRequest));
           });
     });
     transferwiseStatementSubscription =
         transferwiseStatementApiRepo.postTransferwiseStatementItems.listen((event) {
-          final payment = state.map(none: (none)=>null, some: (some) => some.transferwisePayment);
+          final payment = state.map(some: (some) => some.transferwisePayment);
           if (event.isNotEmpty) {
-            emit(TransferwiseState.some(transferwiseStatement: event[0], transferwisePayment: payment));
-          } else {
-            emit(TransferwiseState.some(transferwiseStatement: null, transferwisePayment: payment));
+            emit(newState(transferwiseStatement: event[0]));
           }
         });
   }
 
   QTransferwisePayment? getStatePayment(){
-    final payment = state.map(none: (none)=>null, some: (some) => some.transferwisePayment);
+    final payment = state.map(some: (some) => some.transferwisePayment);
     return payment;
   }
 
   QTransferwiseStatement? getStateStatement(){
-    final statement = state.map(none: (none)=>null, some: (some) => some.transferwiseStatement);
+    final statement = state.map(some: (some) => some.transferwiseStatement);
     return statement;
   }
 
@@ -163,4 +153,24 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
   //             walletRequest: _walletRequest!));
   //   }
   // }
+
+  newState({
+    QTransferwiseStatement? transferwiseStatement,
+    QTransferwisePayment? transferwisePayment,
+    RouterState? routerState,
+    WalletRequest? walletRequest,
+    QWallet? wallet,
+    List<ProductEnum>? productEnums,
+    QAddress? address
+  }){
+    return TransferwiseState.some(
+        transferwiseStatement: transferwiseStatement ??state.transferwiseStatement,
+        transferwisePayment: transferwisePayment ??state.transferwisePayment,
+        routerState: routerState ??state.routerState,
+        walletRequest: walletRequest ??state.walletRequest,
+        wallet: wallet ??state.wallet,
+        productEnums: productEnums ?? state.productEnums,
+        address: address ??state.address
+    );
+  }
 }

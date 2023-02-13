@@ -16,49 +16,74 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TransferwiseState {
+  QTransferwiseStatement? get transferwiseStatement =>
+      throw _privateConstructorUsedError;
+  QTransferwisePayment? get transferwisePayment =>
+      throw _privateConstructorUsedError;
+  RouterState? get routerState => throw _privateConstructorUsedError;
+  WalletRequest? get walletRequest => throw _privateConstructorUsedError;
+  QWallet? get wallet => throw _privateConstructorUsedError;
+  List<ProductEnum> get productEnums => throw _privateConstructorUsedError;
+  QAddress? get address => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(QTransferwiseStatement? transferwiseStatement,
-            QTransferwisePayment? transferwisePayment)
+    required TResult Function(
+            QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment,
+            RouterState? routerState,
+            WalletRequest? walletRequest,
+            QWallet? wallet,
+            List<ProductEnum> productEnums,
+            QAddress? address)
         some,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(QTransferwiseStatement? transferwiseStatement,
-            QTransferwisePayment? transferwisePayment)?
+    TResult? Function(
+            QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment,
+            RouterState? routerState,
+            WalletRequest? walletRequest,
+            QWallet? wallet,
+            List<ProductEnum> productEnums,
+            QAddress? address)?
         some,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(QTransferwiseStatement? transferwiseStatement,
-            QTransferwisePayment? transferwisePayment)?
+    TResult Function(
+            QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment,
+            RouterState? routerState,
+            WalletRequest? walletRequest,
+            QWallet? wallet,
+            List<ProductEnum> productEnums,
+            QAddress? address)?
         some,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
     required TResult Function(_Some value) some,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_None value)? none,
     TResult? Function(_Some value)? some,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
     TResult Function(_Some value)? some,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $TransferwiseStateCopyWith<TransferwiseState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -67,6 +92,17 @@ abstract class $TransferwiseStateCopyWith<$Res> {
   factory $TransferwiseStateCopyWith(
           TransferwiseState value, $Res Function(TransferwiseState) then) =
       _$TransferwiseStateCopyWithImpl<$Res, TransferwiseState>;
+  @useResult
+  $Res call(
+      {QTransferwiseStatement? transferwiseStatement,
+      QTransferwisePayment? transferwisePayment,
+      RouterState? routerState,
+      WalletRequest? walletRequest,
+      QWallet? wallet,
+      List<ProductEnum> productEnums,
+      QAddress? address});
+
+  $RouterStateCopyWith<$Res>? get routerState;
 }
 
 /// @nodoc
@@ -78,122 +114,81 @@ class _$TransferwiseStateCopyWithImpl<$Res, $Val extends TransferwiseState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
 
-/// @nodoc
-abstract class _$$_NoneCopyWith<$Res> {
-  factory _$$_NoneCopyWith(_$_None value, $Res Function(_$_None) then) =
-      __$$_NoneCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_NoneCopyWithImpl<$Res>
-    extends _$TransferwiseStateCopyWithImpl<$Res, _$_None>
-    implements _$$_NoneCopyWith<$Res> {
-  __$$_NoneCopyWithImpl(_$_None _value, $Res Function(_$_None) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_None implements _None {
-  const _$_None();
-
+  @pragma('vm:prefer-inline')
   @override
-  String toString() {
-    return 'TransferwiseState.none()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_None);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(QTransferwiseStatement? transferwiseStatement,
-            QTransferwisePayment? transferwisePayment)
-        some,
+  $Res call({
+    Object? transferwiseStatement = freezed,
+    Object? transferwisePayment = freezed,
+    Object? routerState = freezed,
+    Object? walletRequest = freezed,
+    Object? wallet = freezed,
+    Object? productEnums = null,
+    Object? address = freezed,
   }) {
-    return none();
+    return _then(_value.copyWith(
+      transferwiseStatement: freezed == transferwiseStatement
+          ? _value.transferwiseStatement
+          : transferwiseStatement // ignore: cast_nullable_to_non_nullable
+              as QTransferwiseStatement?,
+      transferwisePayment: freezed == transferwisePayment
+          ? _value.transferwisePayment
+          : transferwisePayment // ignore: cast_nullable_to_non_nullable
+              as QTransferwisePayment?,
+      routerState: freezed == routerState
+          ? _value.routerState
+          : routerState // ignore: cast_nullable_to_non_nullable
+              as RouterState?,
+      walletRequest: freezed == walletRequest
+          ? _value.walletRequest
+          : walletRequest // ignore: cast_nullable_to_non_nullable
+              as WalletRequest?,
+      wallet: freezed == wallet
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as QWallet?,
+      productEnums: null == productEnums
+          ? _value.productEnums
+          : productEnums // ignore: cast_nullable_to_non_nullable
+              as List<ProductEnum>,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as QAddress?,
+    ) as $Val);
   }
 
   @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(QTransferwiseStatement? transferwiseStatement,
-            QTransferwisePayment? transferwisePayment)?
-        some,
-  }) {
-    return none?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(QTransferwiseStatement? transferwiseStatement,
-            QTransferwisePayment? transferwisePayment)?
-        some,
-    required TResult orElse(),
-  }) {
-    if (none != null) {
-      return none();
+  @pragma('vm:prefer-inline')
+  $RouterStateCopyWith<$Res>? get routerState {
+    if (_value.routerState == null) {
+      return null;
     }
-    return orElse();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
-    required TResult Function(_Some value) some,
-  }) {
-    return none(this);
+    return $RouterStateCopyWith<$Res>(_value.routerState!, (value) {
+      return _then(_value.copyWith(routerState: value) as $Val);
+    });
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_None value)? none,
-    TResult? Function(_Some value)? some,
-  }) {
-    return none?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
-    TResult Function(_Some value)? some,
-    required TResult orElse(),
-  }) {
-    if (none != null) {
-      return none(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _None implements TransferwiseState {
-  const factory _None() = _$_None;
 }
 
 /// @nodoc
-abstract class _$$_SomeCopyWith<$Res> {
+abstract class _$$_SomeCopyWith<$Res>
+    implements $TransferwiseStateCopyWith<$Res> {
   factory _$$_SomeCopyWith(_$_Some value, $Res Function(_$_Some) then) =
       __$$_SomeCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
       {QTransferwiseStatement? transferwiseStatement,
-      QTransferwisePayment? transferwisePayment});
+      QTransferwisePayment? transferwisePayment,
+      RouterState? routerState,
+      WalletRequest? walletRequest,
+      QWallet? wallet,
+      List<ProductEnum> productEnums,
+      QAddress? address});
+
+  @override
+  $RouterStateCopyWith<$Res>? get routerState;
 }
 
 /// @nodoc
@@ -208,6 +203,11 @@ class __$$_SomeCopyWithImpl<$Res>
   $Res call({
     Object? transferwiseStatement = freezed,
     Object? transferwisePayment = freezed,
+    Object? routerState = freezed,
+    Object? walletRequest = freezed,
+    Object? wallet = freezed,
+    Object? productEnums = null,
+    Object? address = freezed,
   }) {
     return _then(_$_Some(
       transferwiseStatement: freezed == transferwiseStatement
@@ -218,6 +218,26 @@ class __$$_SomeCopyWithImpl<$Res>
           ? _value.transferwisePayment
           : transferwisePayment // ignore: cast_nullable_to_non_nullable
               as QTransferwisePayment?,
+      routerState: freezed == routerState
+          ? _value.routerState
+          : routerState // ignore: cast_nullable_to_non_nullable
+              as RouterState?,
+      walletRequest: freezed == walletRequest
+          ? _value.walletRequest
+          : walletRequest // ignore: cast_nullable_to_non_nullable
+              as WalletRequest?,
+      wallet: freezed == wallet
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as QWallet?,
+      productEnums: null == productEnums
+          ? _value._productEnums
+          : productEnums // ignore: cast_nullable_to_non_nullable
+              as List<ProductEnum>,
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as QAddress?,
     ));
   }
 }
@@ -226,16 +246,39 @@ class __$$_SomeCopyWithImpl<$Res>
 
 class _$_Some implements _Some {
   const _$_Some(
-      {required this.transferwiseStatement, required this.transferwisePayment});
+      {this.transferwiseStatement,
+      this.transferwisePayment,
+      this.routerState,
+      this.walletRequest,
+      this.wallet,
+      required final List<ProductEnum> productEnums,
+      this.address})
+      : _productEnums = productEnums;
 
   @override
   final QTransferwiseStatement? transferwiseStatement;
   @override
   final QTransferwisePayment? transferwisePayment;
+  @override
+  final RouterState? routerState;
+  @override
+  final WalletRequest? walletRequest;
+  @override
+  final QWallet? wallet;
+  final List<ProductEnum> _productEnums;
+  @override
+  List<ProductEnum> get productEnums {
+    if (_productEnums is EqualUnmodifiableListView) return _productEnums;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_productEnums);
+  }
+
+  @override
+  final QAddress? address;
 
   @override
   String toString() {
-    return 'TransferwiseState.some(transferwiseStatement: $transferwiseStatement, transferwisePayment: $transferwisePayment)';
+    return 'TransferwiseState.some(transferwiseStatement: $transferwiseStatement, transferwisePayment: $transferwisePayment, routerState: $routerState, walletRequest: $walletRequest, wallet: $wallet, productEnums: $productEnums, address: $address)';
   }
 
   @override
@@ -246,12 +289,27 @@ class _$_Some implements _Some {
             (identical(other.transferwiseStatement, transferwiseStatement) ||
                 other.transferwiseStatement == transferwiseStatement) &&
             (identical(other.transferwisePayment, transferwisePayment) ||
-                other.transferwisePayment == transferwisePayment));
+                other.transferwisePayment == transferwisePayment) &&
+            (identical(other.routerState, routerState) ||
+                other.routerState == routerState) &&
+            (identical(other.walletRequest, walletRequest) ||
+                other.walletRequest == walletRequest) &&
+            (identical(other.wallet, wallet) || other.wallet == wallet) &&
+            const DeepCollectionEquality()
+                .equals(other._productEnums, _productEnums) &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, transferwiseStatement, transferwisePayment);
+  int get hashCode => Object.hash(
+      runtimeType,
+      transferwiseStatement,
+      transferwisePayment,
+      routerState,
+      walletRequest,
+      wallet,
+      const DeepCollectionEquality().hash(_productEnums),
+      address);
 
   @JsonKey(ignore: true)
   @override
@@ -262,36 +320,54 @@ class _$_Some implements _Some {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(QTransferwiseStatement? transferwiseStatement,
-            QTransferwisePayment? transferwisePayment)
+    required TResult Function(
+            QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment,
+            RouterState? routerState,
+            WalletRequest? walletRequest,
+            QWallet? wallet,
+            List<ProductEnum> productEnums,
+            QAddress? address)
         some,
   }) {
-    return some(transferwiseStatement, transferwisePayment);
+    return some(transferwiseStatement, transferwisePayment, routerState,
+        walletRequest, wallet, productEnums, address);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(QTransferwiseStatement? transferwiseStatement,
-            QTransferwisePayment? transferwisePayment)?
+    TResult? Function(
+            QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment,
+            RouterState? routerState,
+            WalletRequest? walletRequest,
+            QWallet? wallet,
+            List<ProductEnum> productEnums,
+            QAddress? address)?
         some,
   }) {
-    return some?.call(transferwiseStatement, transferwisePayment);
+    return some?.call(transferwiseStatement, transferwisePayment, routerState,
+        walletRequest, wallet, productEnums, address);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(QTransferwiseStatement? transferwiseStatement,
-            QTransferwisePayment? transferwisePayment)?
+    TResult Function(
+            QTransferwiseStatement? transferwiseStatement,
+            QTransferwisePayment? transferwisePayment,
+            RouterState? routerState,
+            WalletRequest? walletRequest,
+            QWallet? wallet,
+            List<ProductEnum> productEnums,
+            QAddress? address)?
         some,
     required TResult orElse(),
   }) {
     if (some != null) {
-      return some(transferwiseStatement, transferwisePayment);
+      return some(transferwiseStatement, transferwisePayment, routerState,
+          walletRequest, wallet, productEnums, address);
     }
     return orElse();
   }
@@ -299,7 +375,6 @@ class _$_Some implements _Some {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
     required TResult Function(_Some value) some,
   }) {
     return some(this);
@@ -308,7 +383,6 @@ class _$_Some implements _Some {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_None value)? none,
     TResult? Function(_Some value)? some,
   }) {
     return some?.call(this);
@@ -317,7 +391,6 @@ class _$_Some implements _Some {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
     TResult Function(_Some value)? some,
     required TResult orElse(),
   }) {
@@ -330,11 +403,29 @@ class _$_Some implements _Some {
 
 abstract class _Some implements TransferwiseState {
   const factory _Some(
-      {required final QTransferwiseStatement? transferwiseStatement,
-      required final QTransferwisePayment? transferwisePayment}) = _$_Some;
+      {final QTransferwiseStatement? transferwiseStatement,
+      final QTransferwisePayment? transferwisePayment,
+      final RouterState? routerState,
+      final WalletRequest? walletRequest,
+      final QWallet? wallet,
+      required final List<ProductEnum> productEnums,
+      final QAddress? address}) = _$_Some;
 
+  @override
   QTransferwiseStatement? get transferwiseStatement;
+  @override
   QTransferwisePayment? get transferwisePayment;
+  @override
+  RouterState? get routerState;
+  @override
+  WalletRequest? get walletRequest;
+  @override
+  QWallet? get wallet;
+  @override
+  List<ProductEnum> get productEnums;
+  @override
+  QAddress? get address;
+  @override
   @JsonKey(ignore: true)
   _$$_SomeCopyWith<_$_Some> get copyWith => throw _privateConstructorUsedError;
 }
