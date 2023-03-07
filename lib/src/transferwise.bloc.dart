@@ -26,7 +26,7 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
   late final StreamSubscription paymentSubscription;
 
 
-  QWallet? _qWallet;
+  Wallet? _qWallet;
   List<ProductEnum>? _qProducts;
   WalletRequest? _walletRequest;
 
@@ -159,7 +159,7 @@ class TransferwiseBloc extends Cubit<TransferwiseState> {
     QTransferwisePayment? transferwisePayment,
     RouterState? routerState,
     WalletRequest? walletRequest,
-    QWallet? wallet,
+    Wallet? wallet,
     List<ProductEnum>? productEnums,
     QAddress? address
   }){
